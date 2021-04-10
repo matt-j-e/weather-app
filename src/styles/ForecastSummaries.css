@@ -1,0 +1,21 @@
+.forecast-summaries {
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.forecast-summary {
+    padding: 1rem;
+}
+
+.forecast-summary__date {
+    font-weight: bold;
+}
+
+/*** MEDIA QUERIES ***/
+@media screen and (min-width: 1000px) {
+    .forecast-summaries {
+        flex-direction: row;
+    }
+}

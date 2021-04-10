@@ -11,7 +11,7 @@ const ForecastSummary = ({ forecast }) => {
         src={icon}
         alt="weather type icon"
       />
-      <div className="forecast-summary__temp">{temperature.max}&deg;C</div>
+      <div className="forecast-summary__temp">{temperature.max}&deg;c</div>
       <div className="forecast-summary__description">{description}</div>
     </div>
   );
