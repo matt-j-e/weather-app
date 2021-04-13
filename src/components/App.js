@@ -22,13 +22,10 @@ function App() {
     setSelectedDate(date);
   };
 
-  const handleSearchInput = (event) => {
-    setSearchInput(event.target.value);
-  };
-
   const handleCitySearch = (event) => {
     event.preventDefault();
     getForecast(setForecasts, setLocation, searchInput);
+    setSearchInput("");
   };
 
   useEffect(() => {
@@ -39,7 +36,8 @@ function App() {
     <div className="weather-app">
       <LocationDetails city={location.city} country={location.country} />
       <SearchForm
-        onCityInput={handleSearchInput}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
         onCitySearch={handleCitySearch}
       />
       <ForecastSummaries

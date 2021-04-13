@@ -1,15 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchForm = ({ onCityInput, onCitySearch }) => {
+const SearchForm = ({ searchInput, setSearchInput, onCitySearch }) => {
+  const handleInputChange = (event) => setSearchInput(event.target.value);
+
   return (
     <div className="search-form">
       <form onSubmit={onCitySearch}>
         <input
-          onChange={onCityInput}
+          onChange={handleInputChange}
           type="text"
           name="city"
           placeholder="City / town"
+          value={searchInput}
         />
         <input type="submit" value="Search" />
       </form>
@@ -18,7 +21,8 @@ const SearchForm = ({ onCityInput, onCitySearch }) => {
 };
 
 SearchForm.propTypes = {
-  onCityInput: PropTypes.func.isRequired,
+  searchInput: PropTypes.string.isRequired,
+  setSearchInput: PropTypes.func.isRequired,
   onCitySearch: PropTypes.func.isRequired,
 };
 
