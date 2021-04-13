@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+// import axios from "axios";
 import LocationDetails from "./LocationDetails";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
 
 import "../styles/App.css";
+import getForecast from "../requests/getForecast";
 
-function App({ forecasts, location }) {
-  const [selectedDate, setSelectedDate] = useState(forecasts[0].date);
+function App() {
+  const [selectedDate, setSelectedDate] = useState(0);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [forecasts, setForecasts] = useState([]);
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
@@ -16,6 +20,10 @@ function App({ forecasts, location }) {
     setSelectedDate(date);
   };
 
+  useEffect(() => {
+    getForecast(setForecasts, setLocation, "manchester");
+  }, []);
+
   return (
     <div className="weather-app">
       <LocationDetails city={location.city} country={location.country} />
@@ -23,17 +31,9 @@ function App({ forecasts, location }) {
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
       />
-      <ForecastDetails forecast={selectedForecast} />
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
-
-App.propTypes = {
-  forecasts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  location: PropTypes.shape({
-    city: PropTypes.string,
-    country: PropTypes.string,
-  }).isRequired,
-};
 
 export default App;

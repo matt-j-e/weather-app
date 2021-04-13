@@ -1,0 +1,22 @@
+.forecast-summary {
+    text-align: center;
+}
+
+.forecast-summary__date {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.forecast-summary__temperature, .forecast-summary__description {
+    font-size: 1.1rem;
+    padding: 0.4rem;
+}
+
+.wi {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+button {
+    margin-top: 1rem;
+}
