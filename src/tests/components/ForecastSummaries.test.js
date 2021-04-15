@@ -22,7 +22,7 @@ describe("ForecastSummaries", () => {
           max: 24,
           min: 9,
         },
-      }
+      },
     ],
     onForecastSelect: jest.fn(),
   };
