@@ -1,22 +1,33 @@
 .forecast-summary {
+    flex-basis: 19%;
+    font-size: 0.8rem;
     text-align: center;
+    margin: 0.1rem;
+    padding: 0.25rem 0;
+    /* background-color: wheat; */
+    outline: none;
 }
 
 .forecast-summary__date {
-    font-size: 1.3rem;
     font-weight: bold;
 }
 
 .forecast-summary__temperature, .forecast-summary__description {
-    font-size: 1.1rem;
     padding: 0.4rem;
 }
 
-.wi {
-    font-size: 2rem;
+.forecast-summary__icon .wi {
+    font-size: 1.4rem;
     padding: 1rem;
 }
 
 button {
     margin-top: 1rem;
+}
+
+/*** MEDIA QUERIES ***/
+@media screen and (min-width: 650px) {
+    .forecast-summary {
+        font-size: 150%;;
+    }
 }

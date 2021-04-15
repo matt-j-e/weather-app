@@ -8,20 +8,25 @@ import "../styles/ForecastSummary.css";
 const ForecastSummary = ({ forecast, onSelect }) => {
   const { date, description, icon, temperature } = forecast;
   return (
-    <div className="forecast-summary">
-      <div className="forecast-summary__date">
-        {moment(date).format("ddd Do MMM")}
-      </div>
-      <div className="forecast-summary__icon">
+    <div
+      className="forecast-summary"
+      data-testid="forecast-summary"
+      onClick={() => onSelect(date)}
+      onKeyPress={() => onSelect(date)}
+      role="button"
+      tabIndex="0"
+    >
+      <div className="forecast-summary__date">{moment(date).format("ddd")}</div>
+      <div className="forecast-summary__icon" data-testid="forecast-icon">
         <WeatherIcon name="owm" iconId={icon} />
       </div>
       <div className="forecast-summary__temperature">
         {temperature.max}&deg;c
       </div>
       <div className="forecast-summary__description">{description}</div>
-      <button type="button" onClick={() => onSelect(date)}>
+      {/* <button type="button" onClick={() => onSelect(date)}>
         More details
-      </button>
+      </button> */}
     </div>
   );
 };

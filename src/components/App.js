@@ -34,21 +34,21 @@ function App() {
 
   return (
     <div className="weather-app">
-      {location.error ? (
-        <h1 className="error">{location.message}</h1>
-      ) : (
-        <LocationDetails city={location.city} country={location.country} />
-      )}
       <SearchForm
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         onCitySearch={handleCitySearch}
       />
+      {location.error ? (
+        <h1 className="error">{location.message}</h1>
+      ) : (
+        <LocationDetails city={location.city} country={location.country} />
+      )}
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
       <ForecastSummaries
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
       />
-      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
