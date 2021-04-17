@@ -1,5 +1,7 @@
 .weather-app {
     margin: 20px;
+    padding-top: 1rem;
+    background-color: rgba(255,255,255,0.7);
 }
 
 /*** MEDIA QUERIES ***/

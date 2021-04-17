@@ -14,9 +14,9 @@ function App() {
   const [forecasts, setForecasts] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
-  const selectedForecast = forecasts.find(
-    (forecast) => forecast.date === selectedDate
-  );
+  const selectedForecast =
+    forecasts.find((forecast) => forecast.date === selectedDate) ||
+    forecasts[0];
 
   const handleForecastSelect = (date) => {
     setSelectedDate(date);
@@ -32,6 +32,10 @@ function App() {
     getForecast(setForecasts, setLocation, "manchester");
   }, []);
 
+  if (selectedForecast) {
+    document.body.setAttribute("class", selectedForecast.description);
+  }
+
   return (
     <div className="weather-app">
       <SearchForm
@@ -45,6 +49,7 @@ function App() {
         <LocationDetails city={location.city} country={location.country} />
       )}
       {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+
       <ForecastSummaries
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
