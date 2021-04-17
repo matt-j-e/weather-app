@@ -19,17 +19,23 @@ const ForecastDetails = ({ forecast }) => {
       </div>
       <div>
         <div className="forecast-details__temperature--max">
-          <p>Max temp: {temperature.max}&deg;c</p>
+          <p>
+            Max temp: <span>{temperature.max}&deg;c</span>
+          </p>
         </div>
         <div className="forecast-details__temperature--min">
-          <p>Min temp: {temperature.min}&deg;c</p>
+          <p>
+            Min temp: <span>{temperature.min}&deg;c</span>
+          </p>
         </div>
         <div className="forecast-details__humidity">
-          <p>Humidity: {humidity}%</p>
+          <p>
+            Humidity: <span>{humidity}%</span>
+          </p>
         </div>
         <div className="forecast-details__wind">
           <p className="forecast-details__wind--speed">
-            Wind speed {wind.speed} mph
+            Wind speed <span>{wind.speed} mph</span>
           </p>
           <p className="forecast-details__wind--direction">
             Direction: <span>{wind.direction}</span>

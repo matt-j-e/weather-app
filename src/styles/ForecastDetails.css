@@ -20,6 +20,10 @@
     margin: 0.1rem;
 }
 
+.forecast-details p > span {
+    font-weight: bold;
+}
+
 .forecast-details__wind--direction span {
     text-transform: uppercase;
 }
